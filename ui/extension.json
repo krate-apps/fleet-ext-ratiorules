@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "extensionId": "org.fleet.ratiorules",
+  "pages": [
+    {
+      "id": "rules",
+      "title": "Ratio Rules",
+      "route": "/ext/org.fleet.ratiorules/rules"
+    }
+  ],
+  "actions": [
+    {
+      "id": "apply-now",
+      "label": "Apply rules now",
+      "target": "global",
+      "primary": true
+    },
+    {
+      "id": "preview",
+      "label": "Preview (dry-run)",
+      "target": "global"
+    }
+  ],
+  "panels": [
+    {
+      "id": "extratio-settings",
+      "title": "Ratio Rules",
+      "placement": "settings"
+    }
+  ],
+  "forms": [
+    {
+      "id": "extratio-rules",
+      "title": "Ratio Rules",
+      "fields": [
+        {
+          "name": "rulesText",
+          "label": "Automation Rules (Name|match|pattern|target|on — Expert)",
+          "kind": "textarea",
+          "required": true,
+          "advanced": true,
+          "help": "Also editable with the visual builder above. match=label_contain|tracker_contain|private|public",
+          "rows": 10
+        },
+        {
+          "name": "enabled",
+          "label": "Enabled",
+          "kind": "boolean",
+          "help": "Master switch for this worker."
+        }
+      ],
+      "loadMethod": "ext.ratiorules.get",
+      "submitMethod": "ext.ratiorules.save",
+      "description": "Override ratio groups by label/tracker — use the visual builder (or Expert)."
+    }
+  ]
+}

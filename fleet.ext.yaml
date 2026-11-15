@@ -1,0 +1,21 @@
+schema: 1
+id: org.fleet.ratiorules
+name: Ratio Rules
+description: Assign labels from tracker or privacy rules for Ratio Groups.
+version: 1.0.0
+api: ">=1.0.0 <2.0.0"
+engines:
+  - rtorrent
+capabilities:
+  - torrents.read
+  - torrents.actions
+  - trackers.read
+  - storage.read
+  - storage.write
+frontend:
+  type: declarative
+  entry: ui/extension.json
+backend:
+  type: process
+  executable: bin/ratiorules-worker
+  protocol: jsonrpc-2
